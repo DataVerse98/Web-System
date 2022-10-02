@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeVTeC</title>
+    <!--style css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!--style switcher css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleSwitcher.css') }}" type="text/css" />
+
+    <!--font-awesome from cdnjs font awesome libraries-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+    <!--Chart JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <!--wrapper start-->
+    <div class="wrapper">
+      <!--header start-->
+      <div class="header">
+        <div class="sidebar-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="header-menu">
+          <div class="title"><span>GeVTeC</span></div>
+          <div class="toggle-style-switcher">
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+      </div>
+      <!--header end-->
+      <!--sidebar start-->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <div class="img">
+              <img src="{{ url_for('static', filename='img/sdg-n-5.svg.rend.500.500.svg')}}" alt="" />
+            </div>
+            <p>GeVTeC</p>
+          </center>
+          <input type="checkbox" id="tab-nav" class="tab-nav" />
+          <ul>
+            <li class="item">
+              <a href="/" class="menu-btn">
+                <i class="fas fa-desktop"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="/dataset" class="menu-btn active">
+                <i class="fas fa-user-circle"></i>
+                <span>Experiment</span>
+              </a>
+            </li>
+            <li class="item">
+                <a href="/about" class="menu-btn">
+                  <i class="fas fa-info-circle"></i>
+                  <span>About</span>
+                </a>
+              </li>
+            <li class="item">
+              <a href="/project" class="menu-btn">
+                <i class="fas fa-briefcase"></i>
+                <span>Project</span>
+              </a>
+            </li>
+            <li class="item">
+                <a href="/contact" class="menu-btn">
+                  <i class="fas fa-comments"></i>
+                  <span>Contact </span>
+                </a>
+              </li>
+          </ul>
+        </div>
+        <!--copyright-->
+        <div class="copyright-text">
+          &copy; 2020 Template
+        </div>
+        <!--end copyright-->
+      </div>
+      <!--sidebar end-->
+      <div class="main-container">
+
+      <!--profile start-->
+      <section class="profile" id="profile">
+        <div class="section-title text-left">
+          <h1>Experiment</h1>
+        </div>
+        <div class="profile-content">
+          <div class="info">
+            <div class="list">
+              <label>Total Data: </label>
+              <p>85696</p>
+            </div>
+            <div class="list">
+              <label>Max Precision: </label>
+              <p>99.0%</p>
+            </div>
+            <div class="list">
+              <label>Max Recall: </label>
+              <p>99.0%</p>
+            </div>
+            <div class="list">
+              <label>Max F1-Score: </label>
+              <p>99.0%</p>
+            </div>
+            <div class="list">
+              <label>Max Accuracy: </label>
+              <p>98.3%</p>
+            </div>
+            <div class="list">
+              <label>Lowest Lost: </label>
+              <p>0.013%</p>
+            </div>
+          </div>
+          <div class="label">
+            <div class="label-item" style="background-color: red;">Domestic Violence</div>
+            <div class="label-item" style="background-color: blue;">Femicide</div>
+            <div class="label-item" style="background-color: yellow;">Forced Abortion</div>
+            <div class="label-item" style="background-color: orange;">Forced Marriage</div>
+            <div class="label-item" style="background-color: green;">Online Violence</div>
+            <div class="label-item" style="background-color: purple;">Rape</div>
+            <div class="label-item" style="background-color: pink;">Sex Trafficking</div>
+            <div class="label-item" style="background-color: white;">Sexual Harassment</div>
+          </div>
+          <div class="chart">
+            <div class="item-chart">
+                <canvas id="myChart" width="50" height="50"></canvas>
+            </div>
+            <div class="item-chart">
+                <canvas id="testData" width="50" height="50"></canvas>
+            </div>
+            <div class="item-chart">
+                <canvas id="accuracy" width="50" height="50"></canvas>
+            </div>
+            <div class="item-chart">
+                <canvas id="loss" width="50" height="50"></canvas>
+            </div>
+          </div>
+          <div class="chart">
+            <div class="chart-item">
+                <canvas id="myChart2" width="100" height="100"></canvas>
+            </div>
+            <div class="chart-item">
+                <canvas id="myChart3" width="100" height="100"></canvas>
+            </div>
+          </div>
+            
+        </div>
+          <!--sosial links-->
+        
+      </section>
+      <!--profile end-->
+
+      <!--footer-->
+      <section class="footer">
+        <div class="container">
+        <div class="row">
+            <div class="logo">
+            Azim
+            </div>
+            <div class="social">
+            <a href="https://www.facebook.com/abdul.azeem.940098"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/abdulazim_98"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/abdulazim_98/"><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--footer end-->
+    <!--Start CopyRight-->
+    <section class="copyright">
+        <div class="container">
+        <p>&copy; 2020 all right reserved</p>
+        </divc>
+    </section>
+    <!--End CopyRight-->
+  </div>
+<!--main container end-->
+</div>
+
+      <div class="style-switcher">
+        <h5>Time</h5>
+        <div class="clock" id="clock"></div>
+        <h5>Body Skin</h5>
+        <label>
+          <input
+            type="radio"
+            class="body-skin"
+            name="body-style"
+            value="light"
+            checked="true"
+          />
+          Light
+        </label>
+        <label>
+          <input type="radio" class="body-skin" name="body-style" value="dark" />
+          Dark
+        </label>
+      </div>
+
+      <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Domestic Violence', 'Femicide', 'Forced Abortion', 'Forced Marriage', 'Online Violence',
+                 'Rape', 'Sex Trafficking', 'Sexual Harassment'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [17991, 1265, 1325, 2999, 1313, 27466, 6939, 24616],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 182, 193, 0.2)',
+                        'rgba(247, 247, 247, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 182, 193, 1)',
+                        'rgba(10, 10, 10, 0.2)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                title: {
+                    display: true,
+                    text: 'Training Set'
+                    },
+                legend: {
+                    display: false
+                }
+                }
+            }
+        });
+        </script>
+        <script>
+            const ctx4 = document.getElementById('testData').getContext('2d');
+            const testCart = new Chart(ctx4, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Domestic Violence', 'Femicide', 'Forced Abortion', 'Forced Marriage', 'Online Violence',
+                     'Rape', 'Sex Trafficking', 'Sexual Harassment'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [3577, 235, 285, 584, 253, 5439, 1369, 5041],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 182, 193, 0.2)',
+                            'rgba(247, 247, 247, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 182, 193, 1)',
+                            'rgba(10, 10, 10, 0.2)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                    title: {
+                        display: true,
+                        text: 'Test Set'
+                        },
+                    legend: {
+                        display: false
+                    }
+                    }
+                }
+            });
+            </script>
+        <script>
+            var ctx2 = document.getElementById("myChart2").getContext("2d");
+
+            var data = {
+            labels: ['Precision', 'Recall', 'F1-Score'],
+            datasets: [{
+                label: "Domestic Violence",
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1,
+                data: [98, 99, 98]
+            }, {
+                label: "Femicide",
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+                data: [72, 68, 70]
+            }, {
+                label: "Forced Abortion",
+                backgroundColor: "rgba(255, 206, 86, 0.2)",
+                borderColor: "rgba(255, 206, 86, 1)",
+                borderWidth: 1,
+                data: [99, 97, 98]
+            }, {
+                label: "Forced Marriage",
+                backgroundColor: "rgba(255, 159, 64, 0.2)",
+                borderColor: "rgba(255, 159, 64, 1)",
+                borderWidth: 1,
+                data: [99, 99, 99]
+            },
+            {
+                label: "Online Violence",
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+                data: [99, 95, 97]
+            },
+            {
+                label: "Rape",
+                backgroundColor: "rgba(153, 102, 255, 0.2)",
+                borderColor: "rgba(153, 102, 255, 1)",
+                borderWidth: 1,
+                data: [99, 99, 99]
+            },
+            {
+                label: "Sex Trafficking",
+                backgroundColor: "rgba(255, 182, 193, 0.2)",
+                borderColor: "rgba(255, 182, 193, 1)",
+                borderWidth: 1,
+                data: [99, 98, 99]
+            },
+            {
+                label: "Sexual Harassment",
+                backgroundColor: "rgba(247, 247, 247, 0.2)",
+                borderColor: "rgba(10, 10, 10, 0.2)",
+                borderWidth: 1,
+                data: [99, 99, 99]
+            }]
+            };
+
+            var myBarChart = new Chart(ctx2, {
+            type: 'bar',
+            data: data,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                        },
+                plugins: {
+                title: {
+                    display: true,
+                    text: 'Precision, Recall, and F1-Score for All Labels'
+                    },
+                legend: {
+                    display: false
+                }
+                }
+                
+            }
+            });
+            </script>
+
+            <script>
+                var xValues = [ "Accuracy", "Precision", "Recall", "F1-Score"];
+                var yValues = [98.3, 95, 94, 95];
+                var barColors = ["red", "green","blue","orange","brown"];
+
+                var ctx3 = document.getElementById("myChart3").getContext("2d");
+
+                new Chart(ctx3, {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                    }]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Accuracy and Averaage Precision, Recall, and F1-Score'
+                            },
+                        legend: {
+                            display: false
+                        }
+                        }
+                }
+                });
+            </script>
+
+            <script>
+                var speedCanvas = document.getElementById("accuracy");
+
+                //Chart.defaults.global.defaultFontFamily = "Lato";
+                //Chart.defaults.global.defaultFontSize = 18;
+
+                var dataFirst = {
+                    label: "Train Set",
+                    data: [0.6558371186256409, 0.9313879013061523, 0.9532108902931213, 0.9635041952133179, 0.9709225296974182, 0.974169909954071, 
+                    0.9774917960166931, 0.9794878959655762, 0.9807689189910889, 0.9819457530975342, 0.9831076264381409, 0.983867347240448,
+                    0.9850441813468933, 0.9859826564788818, 0.9870700836181641, 0.9875914454460144, 0.9886639714241028, 0.9894534349441528,
+                    0.9892746806144714, 0.9906302690505981],
+                    lineTension: 0,
+                    fill: false,
+                    borderColor: 'red'
+                };
+
+                var dataSecond = {
+                    label: "Valid Set",
+                    data: [0.9145563840866089, 0.9469701647758484, 0.9611511826515198, 0.9705654382705688, 0.9733659029006958, 
+                    0.9768813848495483, 0.9770601391792297, 0.9784901142120361, 0.9768813848495483, 0.9806351661682129, 
+                    0.9797413945198059, 0.9813501834869385, 0.9818864464759827, 0.9818268418312073, 0.9820055961608887, 
+                    0.9811118245124817, 0.9827206134796143, 0.9836739301681519, 0.9828397631645203, 0.9830185174942017],
+                    lineTension: 0,
+                    fill: false,
+                borderColor: 'blue'
+                };
+
+                var speedData = {
+                labels: ["1e", "2e", "3e", "4e", "5e", "6e", "7e",
+            "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e",
+            "16e", "17e", "18e", "19e", "20e"],
+                datasets: [dataFirst, dataSecond]
+                };
+
+                var chartOptions = {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                    boxWidth: 80,
+                    fontColor: 'black'
+                    }
+                },
+                plugins: {
+                title: {
+                    display: true,
+                    text: 'Accuracy'
+                    }
+                }
+                
+                };
+
+                var lineChart = new Chart(speedCanvas, {
+                type: 'line',
+                data: speedData,
+                options: chartOptions
+                });
+            </script>
+
+            <script>
+                var loss = document.getElementById("loss");
+
+                //Chart.defaults.global.defaultFontFamily = "Lato";
+                //Chart.defaults.global.defaultFontSize = 18;
+
+                var lossFirst = {
+                    label: "Train Set",
+                    data: [0.188790962100029, 0.04728221893310547, 0.03279753774404526, 0.0243202093988657, 0.01961539499461651, 
+                    0.017324285581707954, 0.01525373850017786, 0.013859506696462631, 0.012993443757295609, 0.012115293182432652, 
+                    0.01139923557639122, 0.010496263392269611, 0.009899558499455452, 0.009307433851063251, 0.008637613616883755, 
+                    0.008275418542325497, 0.007833601906895638, 0.007130117621272802, 0.007131772115826607, 0.006418704055249691],
+                    lineTension: 0,
+                    fill: false,
+                    borderColor: 'red'
+                };
+
+                var lossSecond = {
+                    label: "Valid Set",
+                    data: [0.05614779517054558, 0.03570035845041275, 0.027157478034496307, 0.019603800028562546, 0.018312154337763786, 
+                    0.01570051908493042, 0.01617070659995079, 0.014809990301728249, 0.016544433310627937, 0.013009537942707539, 
+                    0.013395620509982109, 0.012830296531319618, 0.012135527096688747, 0.012768739834427834, 0.01231394149363041, 
+                    0.012722037732601166, 0.012426244094967842, 0.011977173388004303, 0.012658079154789448, 0.012735344469547272],
+                    lineTension: 0,
+                    fill: false,
+                borderColor: 'blue'
+                };
+
+                var lossData = {
+                labels: ["1e", "2e", "3e", "4e", "5e", "6e", "7e",
+            "8e", "9e", "10e", "11e", "12e", "13e", "14e", "15e",
+            "16e", "17e", "18e", "19e", "20e"],
+                datasets: [lossFirst, lossSecond]
+                };
+
+                var chartOptions = {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                    boxWidth: 80,
+                    fontColor: 'black'
+                    }
+                },
+                plugins: {
+                title: {
+                    display: true,
+                    text: 'Loss'
+                    }
+                }
+                };
+
+                var lineChart = new Chart(loss, {
+                type: 'line',
+                data: lossData,
+                options: chartOptions
+                });
+            </script>
+  
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $(".sidebar-btn").click(function () {
+            $(".wrapper").toggleClass("open");
+          });
+        });
+  
+        //scrollbar
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop(),
+            dh = $(document).height(),
+            wh = $(window).height();
+          scrollPercent = (scroll / (dh - wh)) * 100;
+          $("#progressbar").css("height", scrollPercent + "%");
+        });
+      </script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <!--style Switcher js-->
+      <script src="{{ url_for('static', filename='js/styleSwitcher.js') }}"></script>
+  </body>
+</html>

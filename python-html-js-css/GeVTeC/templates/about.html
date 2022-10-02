@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeVTeC</title>
+    <!--style css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!--style switcher css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleSwitcher.css') }}" type="text/css" />
+
+    <!--font-awesome from cdnjs font awesome libraries-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <!--wrapper start-->
+    <div class="wrapper">
+      <!--header start-->
+      <div class="header">
+        <div class="sidebar-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="header-menu">
+          <div class="title"><span>GeVTeC</span></div>
+          <div class="toggle-style-switcher">
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+      </div>
+      <!--header end-->
+      <!--sidebar start-->
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <center class="profile">
+            <div class="img">
+              <img src="{{ url_for('static', filename='img/sdg-n-5.svg.rend.500.500.svg') }}" alt="" />
+            </div>
+            <p>GeVTeC</p>
+          </center>
+          <input type="checkbox" id="tab-nav" class="tab-nav" />
+          <ul>
+            <li class="item">
+              <a href="/" class="menu-btn">
+                <i class="fas fa-desktop"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="item">
+              <a href="/dataset" class="menu-btn">
+                <i class="fas fa-user-circle"></i>
+                <span>Experiment</span>
+              </a>
+            </li>
+            <li class="item">
+                <a href="/about" class="menu-btn active">
+                  <i class="fas fa-info-circle"></i>
+                  <span>About</span>
+                </a>
+              </li>
+            <li class="item">
+              <a href="/project" class="menu-btn">
+                <i class="fas fa-briefcase"></i>
+                <span>Project</span>
+              </a>
+            </li>
+            <li class="item">
+                <a href="/contact" class="menu-btn">
+                  <i class="fas fa-comments"></i>
+                  <span>Contact </span>
+                </a>
+              </li>
+          </ul>
+        </div>
+        <!--copyright-->
+        <div class="copyright-text">
+          &copy; 2020 Template
+        </div>
+        <!--end copyright-->
+      </div>
+      <!--sidebar end-->
+      <!--About start-->
+      <div class="main-container">
+        <section class="about" id="about">
+            <div class="section-title text-left">
+            <h1>About</h1>
+            </div>
+            <div class="about-content">
+            <div class="row">
+                <!--about item-->
+                <div class="about-item padd-15">
+                <div class="about-item-inner">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Focus</h4>
+                    <p>
+                        SDG 5: Gender Equality <br> Women and girls must have equal rights 
+                        and opportunity and be able to live free of violence and discrimination. 
+                        Women’s equality and empowerment is integral to 
+                        all dimensions of inclusive and sustainable development.
+                    </p>
+                </div>
+                </div>
+                <!--about item end-->
+                <!--about item-->
+                <div class="about-item padd-15">
+                <div class="about-item-inner">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h4>Target</h4>
+                    <p>
+                        End all violence and exploitation against women and girls
+                    </p>
+                </div>
+                </div>
+                <!--about item end-->
+                <!--about item-->
+                <div class="about-item padd-15">
+                <div class="about-item-inner">
+                    <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                    <h4>Goals</h4>
+                    <p>
+                    Classify Gender Violence Text Data that used machine learning.
+                    </p>
+                </div>
+                </div>
+                <!--about item end-->             
+            </div>
+            </div>
+        </section>
+        <!--About end-->
+
+        <!--footer-->
+        <section class="footer">
+            <div class="container">
+            <div class="row">
+                <div class="logo">
+                Azim
+                </div>
+                <div class="social">
+                <a href="https://www.facebook.com/abdul.azeem.940098"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/abdulazim_98"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/abdulazim_98/"><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!--footer end-->
+        <!--Start CopyRight-->
+        <section class="copyright">
+            <div class="container">
+            <p>&copy; 2020 all right reserved</p>
+            </divc>
+        </section>
+        <!--End CopyRight-->
+    </div>
+    <!--main container end-->
+  </div>
+
+      <div class="style-switcher">
+        <h5>Time</h5>
+        <div class="clock" id="clock"></div>
+        <h5>Body Skin</h5>
+        <label>
+          <input
+            type="radio"
+            class="body-skin"
+            name="body-style"
+            value="light"
+            checked="true"
+          />
+          Light
+        </label>
+        <label>
+          <input type="radio" class="body-skin" name="body-style" value="dark" />
+          Dark
+        </label>
+      </div>
+  
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $(".sidebar-btn").click(function () {
+            $(".wrapper").toggleClass("open");
+          });
+        });
+  
+        //scrollbar
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop(),
+            dh = $(document).height(),
+            wh = $(window).height();
+          scrollPercent = (scroll / (dh - wh)) * 100;
+          $("#progressbar").css("height", scrollPercent + "%");
+        });
+      </script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <!--style Switcher js-->
+      <script src="{{ url_for('static', filename='js/styleSwitcher.js') }}"></script>
+  </body>
+</html>
