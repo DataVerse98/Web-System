@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta char="utf-8">
+		<title>HTML to PDF</title>
+		
+		<!-- jquery library -->
+		<!--<script src="js/jquery.min.js"></script>-->
+		
+		<!--jsPDF library-->
+		<!--<script src="js/jsPDF/dist/jspdf.min.js"></script>-->
+		<!--<script src="js/jsPDF/dist/jspdf.min.js"></script>-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js">
+		
+		
+	</head>
+	<body>
+		<script>
+			function generatePDF() {
+				var doc = new jsPDF();
+				
+				//Add text
+				doc.text(20, 20, 'Hello World!');
+				doc.text(20, 20, 'This is client-side Javascript tto generate a PDF.');
+				
+				//Add new page
+				doc.addPage();
+				doc.text(20,20,'Visit CodeWorld.com');
+				
+				//save the PDF
+				doc.save('document.pdf');
+			}
+		</script>
+		<button onclick="generatePDF();">Click to Generate PDF</button>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+
+<html lang="en">
+	<head>
+		<meta char="utf-8">
+		<title>HTML to PDF</title>
+		
+		<!-- jquery library -->
+		<!--<script src="js/jquery.min.js"></script>-->
+		
+	</head>
+	<body>
+		<header>
+			<h1 align='center'>Welcome</h1>
+		</header>
+		<section align='center'>
+			<h2> Register </h2>
+			<form action="form.php" method="post">
+				<p>
+					<label>First Name : </label>
+					<input type="text" name="fname" />
+				</p>
+				<p>
+					<label>Last Name : </label>
+					<input type="text" name="lname" />
+				</p>
+				<p>
+					<label>Gender : </label>
+					<select name="gender">
+						<option selected value="default">Choose...</option>
+                        <option value="Male" >Male</option>
+                        <option value="Female">Female</option>
+					</select>
+				</p>
+				<p>
+					<label>Date of Birth : </label>
+					<input type="date" name="dob" />
+				</p>
+				<p>
+					<label>Mobile : </label>
+					<input type="tel" name="mobile" />
+				</p>
+				<p>
+					<label>Email : </label>
+					<input type="email" name="email" />
+				</p>
+				<input type="submit" value="Register" name="submit" />
+			</form>
+		</section>	
+		
+	</body>
+</html>
